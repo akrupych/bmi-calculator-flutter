@@ -18,7 +18,7 @@ class GenderButton extends StatefulWidget {
 
 class _GenderButtonState extends State<GenderButton> {
   Color getForegroundColor() =>
-      HexColor(widget.isSelected ? kSelectedTextColor : kTextColor);
+      HexColor(widget.isSelected ? kSelectedColor : kInactiveColor);
 
   Color getBackgroundColor() =>
       HexColor(widget.isSelected ? kSelectedCardColor : kCardColor);

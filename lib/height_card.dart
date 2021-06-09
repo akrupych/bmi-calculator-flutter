@@ -42,6 +42,8 @@ class _HeightCardState extends State<HeightCard> {
               value: height.toDouble(),
               min: kMinHeight,
               max: kMaxHeight,
+              activeColor: HexColor(kActiveColor),
+              inactiveColor: HexColor(kInactiveColor),
               onChanged: (value) {
                 setState(() {
                   height = value;

@@ -14,17 +14,17 @@ const kDefaultHeight = 170.0;
 
 const kCardColor = '#111428';
 const kSelectedCardColor = '#1d1f33';
-const kTextColor = '#8d8e98';
-const kSelectedTextColor = '#ffffff';
-const kButtonColor = '#eb1555';
+const kInactiveColor = '#8d8e98';
+const kSelectedColor = '#ffffff';
+const kActiveColor = '#eb1555';
 
 final kTextStyleSmall = TextStyle(
   fontSize: kFontSizeSmall,
-  color: HexColor(kTextColor),
+  color: HexColor(kInactiveColor),
   fontWeight: FontWeight.bold,
 );
 final kTextStyleLarge = TextStyle(
   fontSize: kFontSizeLarge,
-  color: HexColor(kSelectedTextColor),
+  color: HexColor(kSelectedColor),
   fontWeight: FontWeight.w900,
 );

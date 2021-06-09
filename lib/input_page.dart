@@ -101,7 +101,7 @@ class _InputPageState extends State<InputPage> {
               height: kBigMargin,
             ),
             Container(
-              color: HexColor(kButtonColor),
+              color: HexColor(kActiveColor),
               margin: EdgeInsets.only(top: 10),
               height: kButtonHeight,
               child: Center(

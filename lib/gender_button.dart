@@ -16,8 +16,9 @@ class GenderButton extends StatefulWidget {
   IconData icon;
   String text;
   bool isSelected;
+  Function() onPressed;
 
-  GenderButton({this.icon, this.text, this.isSelected = false});
+  GenderButton({this.icon, this.text, this.isSelected = false, this.onPressed});
 
   @override
   _GenderButtonState createState() => _GenderButtonState();
@@ -37,6 +38,7 @@ class _GenderButtonState extends State<GenderButton> {
             setState(() {
               widget.isSelected = !widget.isSelected;
             });
+            widget.onPressed();
           },
           child: ReusableCard(
             color: getBackgroundColor(),

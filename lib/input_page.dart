@@ -20,6 +20,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Gender selectedGender;
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -40,7 +42,12 @@ class _InputPageState extends State<InputPage> {
                   GenderButton(
                     icon: FontAwesomeIcons.mars,
                     text: 'MALE',
-                    isSelected: false,
+                    isSelected: selectedGender == Gender.male,
+                    onPressed: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
                   ),
                   SizedBox(
                     width: smallMargin,
@@ -48,7 +55,12 @@ class _InputPageState extends State<InputPage> {
                   GenderButton(
                     icon: FontAwesomeIcons.venus,
                     text: 'FEMALE',
-                    isSelected: false,
+                    isSelected: selectedGender == Gender.female,
+                    onPressed: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
                   ),
                   SizedBox(
                     width: bigMargin,
@@ -112,4 +124,9 @@ class _InputPageState extends State<InputPage> {
           ],
         ),
       );
+}
+
+enum Gender {
+  male,
+  female,
 }

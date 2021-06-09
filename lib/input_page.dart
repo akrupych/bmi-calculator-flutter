@@ -6,7 +6,6 @@ import 'gender_button.dart';
 import 'reusable_card.dart';
 
 const buttonHeight = 80.0;
-const iconWidth = 50.0;
 const bigMargin = 25.0;
 const smallMargin = 5.0;
 
@@ -41,7 +40,7 @@ class _InputPageState extends State<InputPage> {
                   GenderButton(
                     icon: FontAwesomeIcons.mars,
                     text: 'MALE',
-                    isSelected: true,
+                    isSelected: false,
                   ),
                   SizedBox(
                     width: smallMargin,

@@ -3,7 +3,13 @@ import 'package:bmi_calculator/reusable_card.dart';
 import 'package:bmi_calculator/utils.dart';
 import 'package:flutter/material.dart';
 
-class HeightCard extends StatelessWidget {
+class HeightCard extends StatefulWidget {
+  @override
+  _HeightCardState createState() => _HeightCardState();
+}
+
+class _HeightCardState extends State<HeightCard> {
+  double height = kDefaultHeight;
   @override
   Widget build(BuildContext context) => ReusableCard(
         color: HexColor(kCardColor),
@@ -20,7 +26,7 @@ class HeightCard extends StatelessWidget {
               textBaseline: TextBaseline.ideographic,
               children: [
                 Text(
-                  "183",
+                  height.toInt().toString(),
                   style: kTextStyleLarge,
                 ),
                 SizedBox(
@@ -31,6 +37,16 @@ class HeightCard extends StatelessWidget {
                   style: kTextStyleSmall,
                 ),
               ],
+            ),
+            Slider(
+              value: height.toDouble(),
+              min: kMinHeight,
+              max: kMaxHeight,
+              onChanged: (value) {
+                setState(() {
+                  height = value;
+                });
+              },
             )
           ],
         ),

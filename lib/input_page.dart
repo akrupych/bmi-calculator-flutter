@@ -1,5 +1,4 @@
 import 'package:bmi_calculator/height_card.dart';
-import 'package:bmi_calculator/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -101,7 +100,7 @@ class _InputPageState extends State<InputPage> {
               height: kBigMargin,
             ),
             Container(
-              color: HexColor(kActiveColor),
+              color: kPink,
               margin: EdgeInsets.only(top: 10),
               height: kButtonHeight,
               child: Center(

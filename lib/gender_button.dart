@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'constants.dart';
 import 'reusable_card.dart';
-import 'utils.dart';
 
 class GenderButton extends StatefulWidget {
   IconData icon;
@@ -17,11 +16,10 @@ class GenderButton extends StatefulWidget {
 }
 
 class _GenderButtonState extends State<GenderButton> {
-  Color getForegroundColor() =>
-      HexColor(widget.isSelected ? kSelectedColor : kInactiveColor);
+  Color getForegroundColor() => widget.isSelected ? kWhite : kGrey;
 
   Color getBackgroundColor() =>
-      HexColor(widget.isSelected ? kSelectedCardColor : kCardColor);
+      widget.isSelected ? kSelectedCardColor : kCardColor;
 
   @override
   Widget build(BuildContext context) => Expanded(

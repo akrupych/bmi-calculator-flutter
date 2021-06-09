@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'constants.dart';
-import 'utils.dart';
 
 class ReusableCard extends StatelessWidget {
   Widget child;
   Color color;
 
   ReusableCard({this.child, this.color}) {
-    if (color == null) color = HexColor(kCardColor);
+    if (color == null) color = kCardColor;
   }
 
   @override

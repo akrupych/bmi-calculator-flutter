@@ -1,18 +1,11 @@
+import 'package:bmi_calculator/height_card.dart';
 import 'package:bmi_calculator/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'constants.dart';
 import 'gender_button.dart';
 import 'reusable_card.dart';
-
-const buttonHeight = 80.0;
-const bigMargin = 25.0;
-const smallMargin = 5.0;
-
-const selectedCardColor = '#1d1f33';
-const textColor = '#8d8e98';
-const selectedTextColor = '#ffffff';
-const buttonColor = '#eb1555';
 
 class InputPage extends StatefulWidget {
   @override
@@ -31,13 +24,13 @@ class _InputPageState extends State<InputPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
-              height: bigMargin,
+              height: kBigMargin,
             ),
             Expanded(
               child: Row(
                 children: [
                   SizedBox(
-                    width: bigMargin,
+                    width: kBigMargin,
                   ),
                   GenderButton(
                     icon: FontAwesomeIcons.mars,
@@ -50,7 +43,7 @@ class _InputPageState extends State<InputPage> {
                     },
                   ),
                   SizedBox(
-                    width: smallMargin,
+                    width: kSmallMargin,
                   ),
                   GenderButton(
                     icon: FontAwesomeIcons.venus,
@@ -63,54 +56,54 @@ class _InputPageState extends State<InputPage> {
                     },
                   ),
                   SizedBox(
-                    width: bigMargin,
+                    width: kBigMargin,
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: bigMargin,
+              height: kBigMargin,
             ),
             Expanded(
               child: Row(
                 children: [
                   SizedBox(
-                    width: bigMargin,
+                    width: kBigMargin,
                   ),
-                  ReusableCard(),
+                  HeightCard(),
                   SizedBox(
-                    width: bigMargin,
+                    width: kBigMargin,
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: bigMargin,
+              height: kBigMargin,
             ),
             Expanded(
               child: Row(
                 children: [
                   SizedBox(
-                    width: bigMargin,
+                    width: kBigMargin,
                   ),
                   ReusableCard(),
                   SizedBox(
-                    width: smallMargin,
+                    width: kSmallMargin,
                   ),
                   ReusableCard(),
                   SizedBox(
-                    width: bigMargin,
+                    width: kBigMargin,
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: bigMargin,
+              height: kBigMargin,
             ),
             Container(
-              color: HexColor(buttonColor),
+              color: HexColor(kButtonColor),
               margin: EdgeInsets.only(top: 10),
-              height: buttonHeight,
+              height: kButtonHeight,
               child: Center(
                   child: Text(
                 "CALCULATE YOUR BMI",

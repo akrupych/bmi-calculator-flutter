@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'constants.dart';
 import 'reusable_card.dart';
 import 'utils.dart';
-
-const cardColor = '#111428';
-const selectedCardColor = '#1d1f33';
-const textColor = '#8d8e98';
-const selectedTextColor = '#ffffff';
-
-const iconWidth = 50.0;
-const iconSpacing = 10.0;
-const fontSize = 18.0;
 
 class GenderButton extends StatefulWidget {
   IconData icon;
@@ -26,10 +18,10 @@ class GenderButton extends StatefulWidget {
 
 class _GenderButtonState extends State<GenderButton> {
   Color getForegroundColor() =>
-      HexColor(widget.isSelected ? selectedTextColor : textColor);
+      HexColor(widget.isSelected ? kSelectedTextColor : kTextColor);
 
   Color getBackgroundColor() =>
-      HexColor(widget.isSelected ? selectedCardColor : cardColor);
+      HexColor(widget.isSelected ? kSelectedCardColor : kCardColor);
 
   @override
   Widget build(BuildContext context) => Expanded(
@@ -48,14 +40,14 @@ class _GenderButtonState extends State<GenderButton> {
                 Icon(
                   widget.icon,
                   color: getForegroundColor(),
-                  size: iconWidth,
+                  size: kIconWidth,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: iconSpacing),
+                  padding: const EdgeInsets.only(top: kIconSpacing),
                   child: Text(
                     widget.text,
                     style: TextStyle(
-                      fontSize: fontSize,
+                      fontSize: kFontSizeSmall,
                       color: getForegroundColor(),
                     ),
                   ),

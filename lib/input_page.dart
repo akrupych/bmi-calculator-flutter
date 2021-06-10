@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
 import 'gender_button.dart';
 import 'reusable_card.dart';
+import 'round_icon_button.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -12,7 +13,9 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Gender selectedGender;
+  Gender gender;
+  int weight = 70;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -34,10 +37,10 @@ class _InputPageState extends State<InputPage> {
                   GenderButton(
                     icon: FontAwesomeIcons.mars,
                     text: 'MALE',
-                    isSelected: selectedGender == Gender.male,
+                    isSelected: gender == Gender.male,
                     onPressed: () {
                       setState(() {
-                        selectedGender = Gender.male;
+                        gender = Gender.male;
                       });
                     },
                   ),
@@ -47,10 +50,10 @@ class _InputPageState extends State<InputPage> {
                   GenderButton(
                     icon: FontAwesomeIcons.venus,
                     text: 'FEMALE',
-                    isSelected: selectedGender == Gender.female,
+                    isSelected: gender == Gender.female,
                     onPressed: () {
                       setState(() {
-                        selectedGender = Gender.female;
+                        gender = Gender.female;
                       });
                     },
                   ),
@@ -85,11 +88,87 @@ class _InputPageState extends State<InputPage> {
                   SizedBox(
                     width: kBigMargin,
                   ),
-                  ReusableCard(),
+                  ReusableCard(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "WEIGHT",
+                          style: kTextStyleSmall,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kTextStyleLarge,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: Icons.remove,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundIconButton(
+                              icon: Icons.add,
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                   SizedBox(
                     width: kSmallMargin,
                   ),
-                  ReusableCard(),
+                  ReusableCard(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "AGE",
+                          style: kTextStyleSmall,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kTextStyleLarge,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: Icons.remove,
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundIconButton(
+                              icon: Icons.add,
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                   SizedBox(
                     width: kBigMargin,
                   ),

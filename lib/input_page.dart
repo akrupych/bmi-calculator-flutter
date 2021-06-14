@@ -1,4 +1,3 @@
-import 'package:bmi_calculator/height_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -16,6 +15,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender gender;
+  int height = kDefaultHeight;
   int weight = 70;
   int age = 20;
 
@@ -74,7 +74,59 @@ class _InputPageState extends State<InputPage> {
                   SizedBox(
                     width: kBigMargin,
                   ),
-                  HeightCard(),
+                  ReusableCard(
+                    color: kCardColor,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "HEIGHT",
+                          style: kTextStyleSmall,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.ideographic,
+                          children: [
+                            Text(
+                              height.toInt().toString(),
+                              style: kTextStyleLarge,
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "cm",
+                              style: kTextStyleSmall,
+                            ),
+                          ],
+                        ),
+                        SliderTheme(
+                          data: SliderTheme.of(context).copyWith(
+                            inactiveTrackColor: kGrey,
+                            activeTrackColor: kWhite,
+                            thumbColor: kPink,
+                            overlayColor: kPinkOpacity16,
+                            thumbShape:
+                                RoundSliderThumbShape(enabledThumbRadius: 15),
+                            overlayShape:
+                                RoundSliderOverlayShape(overlayRadius: 25),
+                            trackHeight: 1,
+                          ),
+                          child: Slider(
+                            value: height.toDouble(),
+                            min: kMinHeight,
+                            max: kMaxHeight,
+                            onChanged: (value) {
+                              setState(() {
+                                height = value.round();
+                              });
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                   SizedBox(
                     width: kBigMargin,
                   ),
@@ -186,7 +238,10 @@ class _InputPageState extends State<InputPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ResultsPage(),
+                    builder: (context) => ResultsPage(
+                      height: height,
+                      weight: weight,
+                    ),
                   ),
                 );
               },

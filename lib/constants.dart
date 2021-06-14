@@ -9,7 +9,7 @@ const kFontSizeSmall = 18.0;
 const kFontSizeLarge = 50.0;
 const kMinHeight = 120.0;
 const kMaxHeight = 220.0;
-const kDefaultHeight = 170.0;
+const kDefaultHeight = 170;
 
 const kPrimaryColor = Color(0xff0a0d22);
 const kBackgroundColor = Color(0xff07091A);

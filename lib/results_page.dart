@@ -1,9 +1,34 @@
+import 'package:bmi_calculator/BMICalculator.dart';
 import 'package:bmi_calculator/bottom_button.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/reusable_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
+  double _bmi;
+  String _resultTitle;
+  String _resultDescription;
+
+  ResultsPage({int height, int weight}) {
+    _bmi = BMICalculator.getBMI(height, weight);
+    switch (BMICalculator.getResult(height, weight)) {
+      case BMIResult.OVERWEIGHT:
+        _resultTitle = "OVERWEIGHT";
+        _resultDescription =
+            "You have a higher than normal body weight. Try to exercise more.";
+        break;
+      case BMIResult.NORMAL:
+        _resultTitle = "NORMAL";
+        _resultDescription = "You have a normal body weight. Good job!";
+        break;
+      case BMIResult.UNDERWEIGHT:
+        _resultTitle = "UNDERWEIGHT";
+        _resultDescription =
+            "You have a lower than normal body weight. You can eat a bit more.";
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,20 +55,24 @@ class ResultsPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "NORMAL",
+                      _resultTitle,
                       style: kTextStyleSmall.copyWith(
                         color: Color(0xff23b067),
                       ),
                     ),
                     Text(
-                      "22.1",
+                      _bmi.toStringAsFixed(1),
                       style: kTextStyleLarge.copyWith(
                         fontSize: 100,
                       ),
                     ),
-                    Text(
-                      "Description",
-                      style: kTextStyleSmall,
+                    Padding(
+                      padding: const EdgeInsets.all(kBigMargin),
+                      child: Text(
+                        _resultDescription,
+                        style: kTextStyleSmall,
+                        textAlign: TextAlign.center,
+                      ),
                     )
                   ],
                 ),

@@ -1,10 +1,11 @@
 import 'package:bmi_calculator/height_card.dart';
-import 'package:bmi_calculator/results_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'bottom_button.dart';
 import 'constants.dart';
 import 'gender_button.dart';
+import 'results_page.dart';
 import 'reusable_card.dart';
 import 'round_icon_button.dart';
 
@@ -179,23 +180,9 @@ class _InputPageState extends State<InputPage> {
             SizedBox(
               height: kBigMargin,
             ),
-            GestureDetector(
-              child: Container(
-                color: kPink,
-                margin: EdgeInsets.only(top: 10),
-                height: kButtonHeight,
-                child: Center(
-                  child: Text(
-                    "CALCULATE YOUR BMI",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 3,
-                    ),
-                  ),
-                ),
-              ),
-              onTap: () {
+            BottomButton(
+              text: "CALCULATE YOUR BMI",
+              onPress: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -203,7 +190,7 @@ class _InputPageState extends State<InputPage> {
                   ),
                 );
               },
-            )
+            ),
           ],
         ),
       );

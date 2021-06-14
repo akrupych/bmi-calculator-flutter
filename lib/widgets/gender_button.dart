@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
+import '../constants.dart';
 import 'reusable_card.dart';
 
 class GenderButton extends StatefulWidget {
